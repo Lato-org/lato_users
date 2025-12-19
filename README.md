@@ -1,4 +1,6 @@
 # Lato Users
+⚠️ This repository is under development and may change without prior notice. ⚠️
+
 Manage application users on Lato projects.
 
 ## Installation
