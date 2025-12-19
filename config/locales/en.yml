@@ -1,0 +1,54 @@
+en:
+  lato_users:
+    users: Users
+    add_user: Add User
+    edit_user: Edit User
+    show_user: User details
+    cta_show: Show
+    cta_edit: Edit
+    cta_update: Update
+    cta_delete: Delete
+    cta_confirm: Confirm
+    cta_delete_confirm: Are you sure you want to delete this user?
+    cannot_delete_self: You cannot delete your own user account.
+    account_informations: Account Informations
+    email_verification: "Email Verification"
+    email_verified: "Email Verified"
+    email_verified_at: "Verified on %{date}"
+    email_verification_required: "Verification required"
+    revoke_verification: "Revoke verification"
+    are_you_sure: "Are you sure?"
+    email_not_verified: "Email not verified"
+    resend_verification_email: "Resend verification email"
+    manual_verify_email: "Manually verify"
+    verification_email_sent: "Verification email sent"
+    email_manually_verified: "Email manually verified"
+    email_verification_revoked: "Email verification revoked"
+    privacy_and_terms: "Privacy Policy and Terms"
+    privacy_policy: "Privacy Policy"
+    terms_and_conditions: "Terms and Conditions"
+    accepted_version: "Accepted version"
+    current_version: "Current version"
+    version_outdated: "Version outdated"
+    version_up_to_date: "Version up to date"
+    security: "Security"
+    signup_logs: "Signup Logs"
+    date: "Date"
+    ip_address: "IP Address"
+    user_agent: "User Agent"
+    no_logs_found: "No logs found"
+    login_logs: "Login Logs"
+    password_management: "Password Management"
+    password_set: "Password set"
+    password_not_set: "Password not set"
+    send_reset_password_email: "Send reset password email"
+    force_password_update: "Force password update"
+    recover_password_email_sent: "Recovery password email sent"
+    recover_password_email_failed: "Failed to send recovery password email"
+    password_updated: "Password updated: %{password}"
+    password_update_failed: "Failed to update password"
+    authenticator_connection: "Authenticator Connection"
+    webauthn_connection: "WebAuthn Connection"
+    connected: "Connected"
+    not_connected: "Not Connected"
+    devices_count: "Connected Devices"

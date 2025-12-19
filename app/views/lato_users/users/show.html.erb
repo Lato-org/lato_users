@@ -1,0 +1,12 @@
+<%= lato_page_head I18n.t('lato_users.show_user'), [
+  { label: I18n.t('lato_users.users'), path: lato_users.users_path },
+  { label: I18n.t('lato_users.show_user') }
+] %>
+
+<%= render 'card_account_informations' %>
+
+<%= render 'card_email_verification' %>
+
+<%= render 'card_security' %>
+
+<%= render 'card_privacy_and_terms' %>

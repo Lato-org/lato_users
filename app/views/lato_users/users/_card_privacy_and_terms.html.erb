@@ -1,0 +1,70 @@
+<div class="card mb-4">
+  <div class="card-header">
+    <h2 class="fs-4 mb-0"><%= I18n.t('lato_users.privacy_and_terms') %></h2>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col col-12 col-lg-6 mb-3 mb-lg-0">
+        <h5 class="fs-6 fw-bold mb-3"><%= I18n.t('lato_users.privacy_policy') %></h5>
+        <p class="mb-1">
+          <%= I18n.t('lato_users.accepted_version') %>:
+          <span class="fw-bold"><%= @user.accepted_privacy_policy_version %></span>
+        </p>
+        <p class="mb-3">
+          <%= I18n.t('lato_users.current_version') %>:
+          <span class="fw-bold"><%= Lato.config.legal_privacy_policy_version %></span>
+        </p>
+        <% if @user.accepted_privacy_policy_version < Lato.config.legal_privacy_policy_version %>
+          <div class="d-flex align-items-center p-3 bg-warning bg-opacity-10 border border-warning rounded">
+            <div class="me-3 text-warning">
+              <i class="bi bi-exclamation-triangle-fill fs-4"></i>
+            </div>
+            <div>
+              <h5 class="fs-6 fw-bold text-warning mb-0"><%= I18n.t('lato_users.version_outdated') %></h5>
+            </div>
+          </div>
+        <% else %>
+          <div class="d-flex align-items-center p-3 bg-success bg-opacity-10 border border-success rounded">
+            <div class="me-3 text-success">
+              <i class="bi bi-check-circle-fill fs-4"></i>
+            </div>
+            <div>
+              <h5 class="fs-6 fw-bold text-success mb-0"><%= I18n.t('lato_users.version_up_to_date') %></h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="col col-12 col-lg-6">
+        <h5 class="fs-6 fw-bold mb-3"><%= I18n.t('lato_users.terms_and_conditions') %></h5>
+        <p class="mb-1">
+          <%= I18n.t('lato_users.accepted_version') %>:
+          <span class="fw-bold"><%= @user.accepted_terms_and_conditions_version %></span>
+        </p>
+        <p class="mb-3">
+          <%= I18n.t('lato_users.current_version') %>:
+          <span class="fw-bold"><%= Lato.config.legal_terms_and_conditions_version %></span>
+        </p>
+        <% if @user.accepted_terms_and_conditions_version < Lato.config.legal_terms_and_conditions_version %>
+          <div class="d-flex align-items-center p-3 bg-warning bg-opacity-10 border border-warning rounded">
+            <div class="me-3 text-warning">
+              <i class="bi bi-exclamation-triangle-fill fs-4"></i>
+            </div>
+            <div>
+              <h5 class="fs-6 fw-bold text-warning mb-0"><%= I18n.t('lato_users.version_outdated') %></h5>
+            </div>
+          </div>
+        <% else %>
+          <div class="d-flex align-items-center p-3 bg-success bg-opacity-10 border border-success rounded">
+            <div class="me-3 text-success">
+              <i class="bi bi-check-circle-fill fs-4"></i>
+            </div>
+            <div>
+              <h5 class="fs-6 fw-bold text-success mb-0"><%= I18n.t('lato_users.version_up_to_date') %></h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

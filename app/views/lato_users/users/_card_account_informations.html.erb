@@ -1,0 +1,28 @@
+<div class="card mb-4">
+  <div class="card-header">
+    <h2 class="fs-4 mb-0"><%= I18n.t('lato_users.account_informations') %></h2>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col col-12 col-md-6 col-lg-3 mb-3">
+        <label class="form-label" for="first_name"><%= I18n.t('activerecord.attributes.lato/user.first_name') %></label>
+        <input type="text" id="first_name" class="form-control" value="<%= @user.first_name %>" disabled>
+      </div>
+
+      <div class="col col-12 col-md-6 col-lg-3 mb-3">
+        <label class="form-label" for="last_name"><%= I18n.t('activerecord.attributes.lato/user.last_name') %></label>
+        <input type="text" id="last_name" class="form-control" value="<%= @user.last_name %>" disabled>
+      </div>
+
+      <div class="col col-12 col-md-6 col-lg-3 mb-3">
+        <label class="form-label" for="email"><%= I18n.t('activerecord.attributes.lato/user.email') %></label>
+        <input type="text" id="email" class="form-control" value="<%= @user.email %>" disabled>
+      </div>
+
+      <div class="col col-12 col-md-6 col-lg-3 mb-3">
+        <label class="form-label" for="locale"><%= I18n.t('activerecord.attributes.lato/user.locale') %></label>
+        <input type="text" id="locale" class="form-control" value="<%= @user.locale %>" disabled>
+      </div>
+    </div>
+  </div>
+</div>
