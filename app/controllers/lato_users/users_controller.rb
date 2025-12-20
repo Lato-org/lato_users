@@ -1,5 +1,7 @@
 module LatoUsers
   class UsersController < ApplicationController
+    before_action :load_available_admin_permissions
+
     def index
       @users = lato_index_collection(
         Lato::User.all,
@@ -38,7 +40,7 @@ module LatoUsers
     def update
       @user = Lato::User.find(params[:id])
       if @user.update(user_params)
-        redirect_to users_path
+        redirect_to(params[:redirect_to] || users_path)
       else
         render 'edit'
       end
@@ -95,7 +97,11 @@ module LatoUsers
     private
 
     def user_params
-      params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation)
+      params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation, @available_admin_permissions)
+    end
+
+    def load_available_admin_permissions
+      @available_admin_permissions ||= Lato::User.columns.map(&:name).select { |c| c.start_with?('lato_') && c.end_with?('_admin') }
     end
   end
 end

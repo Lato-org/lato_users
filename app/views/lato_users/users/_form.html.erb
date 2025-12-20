@@ -9,6 +9,10 @@ user ||= Lato::User.new
     <%= lato_form_notices class: %w[mb-3] %>
     <%= lato_form_errors user, class: %w[mb-3] %>
 
+    <% unless params[:redirect_to].blank? %>
+      <%= hidden_field_tag :redirect_to, params[:redirect_to] %>
+    <% end %>
+
     <div class="row">
       <div class="col col-12 mb-3">
         <%= lato_form_item_label form, :email %>
@@ -56,6 +60,29 @@ user ||= Lato::User.new
                     <input type="text" class="form-control font-monospace" readonly data-lato-users-form-target="generatedPassword" placeholder="...">
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <% if @available_admin_permissions.any? %>
+      <div class="accordion mb-3" id="permissionsAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingPermissions">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePermissions" aria-expanded="false" aria-controls="collapsePermissions">
+              <%= I18n.t('lato_users.permissions') %>
+            </button>
+          </h2>
+          <div id="collapsePermissions" class="accordion-collapse collapse" aria-labelledby="headingPermissions" data-bs-parent="#permissionsAccordion">
+            <div class="accordion-body">
+              <div class="row">
+                <% @available_admin_permissions.each_with_index do |permission, index| %>
+                  <div class="col-12 col-md-6 <%= 'mb-3' unless index == @available_admin_permissions.size - 1 %>">
+                    <%= lato_form_item_input_check form, permission.to_sym, permission.humanize %>
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>

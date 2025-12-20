@@ -58,3 +58,4 @@ en:
     devices_count: "Connected Devices"
     invitations: "Invitations"
     generate_password: 'Generate Password'
+    permissions: "Permissions"

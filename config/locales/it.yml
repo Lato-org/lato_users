@@ -1,5 +1,17 @@
 it:
   lato_users:
+    users: Utenti
+    add_user: Aggiungi Utente
+    edit_user: Modifica Utente
+    show_user: Dettagli Utente
+    cta_show: Visualizza
+    cta_edit: Modifica
+    cta_update: Aggiorna
+    cta_delete: Elimina
+    cta_confirm: Conferma
+    cta_delete_confirm: Sei sicuro di voler eliminare questo utente?
+    cannot_delete_self: Non puoi eliminare il tuo account utente.
+    account_informations: Informazioni Account
     email_verification: "Verifica Email"
     email_verified: "Email Verificata"
     email_verified_at: "Verificata il %{date}"
@@ -16,16 +28,16 @@ it:
     privacy_policy: "Privacy Policy"
     terms_and_conditions: "Termini e Condizioni"
     accepted_version: "Versione accettata"
-    current_version: "Versione attuale"
+    current_version: "Versione corrente"
     version_outdated: "Versione obsoleta"
     version_up_to_date: "Versione aggiornata"
     security: "Sicurezza"
-    signup_logs: "Log di registrazione"
+    signup_logs: "Log di Registrazione"
     date: "Data"
     ip_address: "Indirizzo IP"
     user_agent: "User Agent"
     no_logs_found: "Nessun log trovato"
-    login_logs: "Log di accesso"
+    login_logs: "Log di Accesso"
     password_management: "Gestione Password"
     password_set: "Password impostata"
     password_not_set: "Password non impostata"
@@ -36,8 +48,13 @@ it:
     password_updated: "Password aggiornata: %{password}"
     password_update_failed: "Impossibile aggiornare la password"
     authenticator_connection: "Connessione Authenticator"
+    invitations: "Inviti"
+    add_invitation: "Aggiungi Invito"
+    invitation_created: "Invito creato"
+    invitation_destroyed: "Invito eliminato"
     webauthn_connection: "Connessione WebAuthn"
     connected: "Connesso"
-    not_connected: "Non connesso"
-    devices_count: "Dispositivi collegati"
+    not_connected: "Non Connesso"
+    devices_count: "Dispositivi Connessi"
     generate_password: 'Genera Password'
+    permissions: "Permessi"
