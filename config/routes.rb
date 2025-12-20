@@ -9,4 +9,6 @@ LatoUsers::Engine.routes.draw do
       patch :force_update_password
     end
   end
+
+  resources :invitations, except: [:show]
 end
