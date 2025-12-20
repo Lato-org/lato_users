@@ -3,9 +3,9 @@ module LatoUsers
     def index
       @invitations = lato_index_collection(
         Lato::Invitation.all,
-        columns: %i[id email accepted_at created_at actions],
+        columns: %i[email accepted_at created_at actions],
         searchable_columns: %i[email],
-        sortable_columns: %i[id email created_at],
+        sortable_columns: %i[email accepted_at created_at],
         pagination: true,
         default_sort_by: "created_at|desc"
       )
