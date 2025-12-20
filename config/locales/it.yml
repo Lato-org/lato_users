@@ -40,3 +40,4 @@ it:
     connected: "Connesso"
     not_connected: "Non connesso"
     devices_count: "Dispositivi collegati"
+    generate_password: 'Genera Password'

@@ -4,12 +4,19 @@
   <div class="card-body">
     <%= lato_index @users,
       custom_actions: {
+        invitations: {
+          path: '#',
+          icon: 'bi bi-envelope',
+          aria_label: I18n.t('lato_users.invitations'),
+          title: I18n.t('lato_users.invitations'),
+          data: { controller: 'lato-tooltip' },
+        },
         create: {
           path: lato_users.new_user_path,
           icon: 'bi bi-plus',
           aria_label: I18n.t('lato_users.add_user'),
           title: I18n.t('lato_users.add_user'),
-          data: { lato_action_target: 'trigger', turbo_frame: dom_id(Lato::User.new, 'form'), action_title: I18n.t('lato_users.add_user') },
+          data: { lato_action_target: 'trigger', turbo_frame: dom_id(Lato::User.new, 'form'), action_title: I18n.t('lato_users.add_user'), controller: 'lato-tooltip' },
         }
       }
     %>

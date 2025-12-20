@@ -52,3 +52,5 @@ en:
     connected: "Connected"
     not_connected: "Not Connected"
     devices_count: "Connected Devices"
+    invitations: "Invitations"
+    generate_password: 'Generate Password'
