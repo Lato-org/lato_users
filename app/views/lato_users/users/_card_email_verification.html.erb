@@ -17,13 +17,13 @@
         <%= button_to I18n.t('lato_users.revoke_verification'), revoke_email_verification_user_path(@user), method: :patch, class: "btn btn-danger btn-sm", form: { data: { turbo_confirm: I18n.t('lato_users.are_you_sure') } } %>
       </div>
     <% else %>
-      <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between p-3 bg-warning bg-opacity-10 border border-warning rounded">
+      <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between p-3 bg-danger bg-opacity-10 border border-danger rounded">
         <div class="d-flex align-items-center mb-3 mb-md-0">
-          <div class="me-3 text-warning">
+          <div class="me-3 text-danger">
             <i class="bi bi-exclamation-triangle-fill fs-4"></i>
           </div>
           <div>
-            <h5 class="fs-6 fw-bold text-warning mb-0"><%= I18n.t('lato_users.email_not_verified') %></h5>
+            <h5 class="fs-6 fw-bold text-danger mb-0"><%= I18n.t('lato_users.email_not_verified') %></h5>
             <small class="text-muted"><%= I18n.t('lato_users.email_verification_required') %></small>
           </div>
         </div>
