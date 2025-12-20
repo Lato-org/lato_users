@@ -102,19 +102,6 @@ ActiveRecord::Schema[8.1].define(version: 2025_12_19_105160) do
     t.index ["email"], name: "index_lato_users_on_email", unique: true
   end
 
-  create_table "lato_users_settings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.string "description"
-    t.string "key", null: false
-    t.string "label"
-    t.json "options"
-    t.boolean "required", default: false
-    t.integer "typology", default: 0
-    t.datetime "updated_at", null: false
-    t.string "value"
-    t.index ["key"], name: "index_lato_users_settings_on_key", unique: true
-  end
-
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "lato_invitations", "lato_users"
