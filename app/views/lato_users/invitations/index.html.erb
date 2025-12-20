@@ -1,0 +1,20 @@
+<%= lato_page_head I18n.t('lato_users.invitations'), [
+  { label: I18n.t('lato_users.users'), path: lato_users.users_path },
+  { label: I18n.t('lato_users.invitations') }
+] %>
+
+<div class="card mb-4">
+  <div class="card-body">
+    <%= lato_index @invitations,
+      custom_actions: {
+        create: {
+          path: lato_users.new_invitation_path,
+          icon: 'bi bi-plus',
+          aria_label: I18n.t('lato_users.add_invitation'),
+          title: I18n.t('lato_users.add_invitation'),
+          data: { lato_action_target: 'trigger', turbo_frame: dom_id(Lato::Invitation.new, 'form'), action_title: I18n.t('lato_users.add_invitation'), controller: 'lato-tooltip' },
+        }
+      }
+    %>
+  </div>
+</div>

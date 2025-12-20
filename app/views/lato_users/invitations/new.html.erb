@@ -1,0 +1,14 @@
+<%= lato_page_head I18n.t('lato_users.add_invitation'), [
+  { label: I18n.t('lato_users.users'), path: lato_users.users_path },
+  { label: I18n.t('lato_users.invitations'), path: lato_users.invitations_path },
+  { label: I18n.t('lato_users.add_invitation') }
+] %>
+
+<div class="card mb-4">
+  <div class="card-header">
+    <h2 class="fs-4 mb-0"><%= I18n.t('lato_users.add_invitation') %></h2>
+  </div>
+  <div class="card-body">
+    <%= render 'form', invitation: @invitation %>
+  </div>
+</div>

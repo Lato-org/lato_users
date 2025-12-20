@@ -10,5 +10,5 @@ LatoUsers::Engine.routes.draw do
     end
   end
 
-  resources :invitations, except: [:show]
+  resources :invitations, except: [:show, :edit, :update]
 end

@@ -1,0 +1,23 @@
+<%
+invitation ||= Lato::Invitation.new
+%>
+
+<%= turbo_frame_tag dom_id(invitation, 'form') do %>
+  <%= form_with model: invitation, url: invitation.persisted? ? lato_users.invitation_path(invitation) : lato_users.invitations_path, data: { turbo_frame: '_self', controller: 'lato-form' } do |form| %>
+    <%= lato_form_notices class: %w[mb-3] %>
+    <%= lato_form_errors invitation, class: %w[mb-3] %>
+
+    <div class="row">
+      <div class="col col-12 mb-3">
+        <%= lato_form_item_label form, :email %>
+        <%= lato_form_item_input_email form, :email, required: true %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 text-end">
+        <%= form.submit I18n.t('lato_users.cta_confirm'), class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
