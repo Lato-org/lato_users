@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lato_users (3.0.0)
+    lato_users (3.0.1)
       lato
       rails (>= 7.1.1)
 
@@ -169,8 +169,7 @@ GEM
       net-smtp
     marcel (1.1.0)
     mini_mime (1.1.5)
-    minitest (6.0.0)
-      prism (~> 1.5)
+    minitest (5.27.0)
     net-imap (0.6.2)
       date
       net-protocol
@@ -192,7 +191,6 @@ GEM
     pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
-    prism (1.7.0)
     psych (5.3.1)
       date
       stringio
@@ -327,6 +325,7 @@ DEPENDENCIES
   lato
   lato_users!
   letter_opener
+  minitest (< 6.0)
   puma
   rails-erd
   sassc-rails
