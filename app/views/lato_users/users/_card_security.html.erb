@@ -58,7 +58,7 @@
                   <div class="col-12 col-md-3">
                     <div class="d-flex align-items-center">
                       <i class="bi bi-globe me-2 text-muted d-md-none"></i>
-                      <code class="text-dark"><%= log.ip_address %></code>
+                      <%= log.ip_address %>
                     </div>
                   </div>
                   <div class="col-12 col-md-6 text-muted small">
@@ -74,7 +74,7 @@
             <% end %>
           </div>
         <% else %>
-          <div class="alert alert-light border text-center text-muted">
+          <div class="alert border text-center text-muted">
             <i class="bi bi-info-circle me-2"></i><%= I18n.t('lato_users.no_logs_found') %>
           </div>
         <% end %>
@@ -96,7 +96,7 @@
                   <div class="col-12 col-md-3">
                     <div class="d-flex align-items-center">
                       <i class="bi bi-globe me-2 text-muted d-md-none"></i>
-                      <code class="text-dark"><%= log.ip_address %></code>
+                      <%= log.ip_address %>
                     </div>
                   </div>
                   <div class="col-12 col-md-6 text-muted small">
@@ -112,7 +112,7 @@
             <% end %>
           </div>
         <% else %>
-          <div class="alert alert-light border text-center text-muted">
+          <div class="alert border text-center text-muted">
             <i class="bi bi-info-circle me-2"></i><%= I18n.t('lato_users.no_logs_found') %>
           </div>
         <% end %>
