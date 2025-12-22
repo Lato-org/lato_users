@@ -58,7 +58,9 @@
                   <div class="col-12 col-md-3">
                     <div class="d-flex align-items-center">
                       <i class="bi bi-globe me-2 text-muted d-md-none"></i>
-                      <%= log.ip_address %>
+                      <span class="text-truncate d-block" style="max-width: 100%;" title="<%= log.ip_address %>" data-bs-toggle="tooltip">
+                        <%= log.ip_address %>
+                      </span>
                     </div>
                   </div>
                   <div class="col-12 col-md-6 text-muted small">
@@ -96,7 +98,9 @@
                   <div class="col-12 col-md-3">
                     <div class="d-flex align-items-center">
                       <i class="bi bi-globe me-2 text-muted d-md-none"></i>
-                      <%= log.ip_address %>
+                      <span class="text-truncate d-block" style="max-width: 100%;" title="<%= log.ip_address %>" data-bs-toggle="tooltip">
+                        <%= log.ip_address %>
+                      </span>
                     </div>
                   </div>
                   <div class="col-12 col-md-6 text-muted small">
