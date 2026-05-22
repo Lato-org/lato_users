@@ -55,6 +55,8 @@ module LatoUsers
       @user = Lato::User.find(params[:id])
       @user.destroy
       redirect_to users_path
+    rescue ActiveRecord::InvalidForeignKey
+      redirect_to users_path, alert: I18n.t('lato_users.cannot_delete_foreign_key')
     end
 
     def resend_verification_email

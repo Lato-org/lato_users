@@ -11,6 +11,7 @@ en:
     cta_confirm: Confirm
     cta_delete_confirm: Are you sure you want to delete this user?
     cannot_delete_self: You cannot delete your own user account.
+    cannot_delete_foreign_key: Cannot delete the user because it is linked to one or more records in other tables. Remove or update the linked records before proceeding with the deletion.
     account_informations: Account Informations
     email_verification: "Email Verification"
     email_verified: "Email Verified"

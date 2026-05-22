@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lato_users (3.0.3)
+    lato_users (3.0.4)
       lato
       rails (>= 7.1.1)
 
@@ -314,6 +314,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-24
+  arm64-darwin-25
   x86_64-darwin-22
   x86_64-darwin-23
 

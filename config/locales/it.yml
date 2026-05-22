@@ -11,6 +11,7 @@ it:
     cta_confirm: Conferma
     cta_delete_confirm: Sei sicuro di voler eliminare questo utente?
     cannot_delete_self: Non puoi eliminare il tuo account utente.
+    cannot_delete_foreign_key: Impossibile eliminare l'utente perché è collegato ad uno o più record in altre tabelle. Rimuovi o aggiorna i record collegati prima di procedere con l'eliminazione.
     account_informations: Informazioni Account
     email_verification: "Verifica Email"
     email_verified: "Email Verificata"
