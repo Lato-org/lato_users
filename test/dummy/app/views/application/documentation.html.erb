@@ -1,7 +1,92 @@
-<%= lato_page_head 'Documentation' %>
+<%= lato_page_head "Documentation" %>
 
-<div class="alert alert-info mt-3">
+<h2>How to use Lato Users</h2>
+
+<p>
+  <code>lato_users</code> adds a user management section to a Lato admin panel.
+  Use it when the application needs admins to create users, edit user data, manage invitations,
+  and handle account verification from the back office.
+</p>
+
+<h3>Installation</h3>
+
+<p>Add Lato Users to the application Gemfile:</p>
+
+<pre><code>gem "lato"
+gem "lato_users"</code></pre>
+
+<p>Install the engine and run migrations:</p>
+
+<pre><code>bundle
+rails lato_users:install:application
+rails lato_users:install:migrations
+rails db:migrate</code></pre>
+
+<p>Mount the engine in <code>config/routes.rb</code>:</p>
+
+<pre><code>Rails.application.routes.draw do
+  mount LatoUsers::Engine =&gt; "/lato-users"
+
+  # ...
+end</code></pre>
+
+<p>Import styles in <code>app/assets/stylesheets/application.scss</code>:</p>
+
+<pre><code>@import "lato_users/application";</code></pre>
+
+<p>Import JavaScript in <code>app/javascript/application.js</code>:</p>
+
+<pre><code>import "lato_users/application"</code></pre>
+
+<h3>Permissions</h3>
+
+<p>
+  Users must be logged into Lato and must have Lato Users admin permission enabled.
+  Grant permission from application seeds or from an existing admin account.
+</p>
+
+<pre><code>user = Lato::User.find_by(email: "admin@example.com")
+user.update!(lato_users_admin: true)</code></pre>
+
+<h3>What admins can do</h3>
+
+<ul>
+  <li>View all application users.</li>
+  <li>Create new users.</li>
+  <li>Edit user email, name, password, and available Lato admin permissions.</li>
+  <li>Verify or revoke email verification.</li>
+  <li>Send a new verification email.</li>
+  <li>Generate a new password for a user.</li>
+  <li>Delete users when allowed by the application data constraints.</li>
+  <li>Create and delete invitations.</li>
+</ul>
+
+<div class="alert alert-warning mt-3">
   <p class="mb-0">
-  No documentation needed for the moment.
+    Admins cannot delete their own currently logged-in account from Lato Users.
   </p>
 </div>
+
+<h3>Recommended setup</h3>
+
+<p>
+  Create at least one administrator in seeds and enable <code>lato_users_admin</code>.
+  This guarantees access to the user management panel after first deployment.
+</p>
+
+<pre><code>admin = Lato::User.find_or_create_by!(email: "admin@example.com") do |user|
+  user.first_name = "Admin"
+  user.last_name = "User"
+  user.password = "Password1!"
+  user.password_confirmation = "Password1!"
+  user.email_verified_at = Time.current
+end
+
+admin.update!(lato_users_admin: true)</code></pre>
+
+<h3>Invitations</h3>
+
+<p>
+  Use invitations when users should not self-register.
+  Admins can create invitations from the Lato Users panel. Invited people receive an email and complete account creation from the invitation link.
+</p>
