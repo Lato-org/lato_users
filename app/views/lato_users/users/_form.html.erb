@@ -79,9 +79,10 @@ user ||= Lato::User.new
             <div class="accordion-body">
               <div class="row">
                 <% @available_admin_permissions.each_with_index do |permission, index| %>
-                  <div class="col-12 col-md-6 <%= 'mb-3' unless index == @available_admin_permissions.size - 1 %>">
+                  <% is_enum = permission[:type] == :enum %>
+                  <div class="<%= is_enum ? 'col-12' : 'col-12 col-md-6' %> <%= 'mb-3' unless index == @available_admin_permissions.size - 1 %>">
                     <% label = Lato::User.human_attribute_name(permission[:name]) %>
-                    <% if permission[:type] == :enum %>
+                    <% if is_enum %>
                       <%= lato_form_item_label form, permission[:name].to_sym, label %>
                       <%= lato_form_item_input_select form, permission[:name].to_sym, permission[:options] %>
                     <% else %>
