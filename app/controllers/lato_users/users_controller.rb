@@ -99,11 +99,29 @@ module LatoUsers
     private
 
     def user_params
-      params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation, @available_admin_permissions)
+      permission_keys = @available_admin_permissions.map { |permission| permission[:name] }
+      params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation, *permission_keys)
     end
 
+    # Discover admin permissions on Lato::User by column naming convention.
+    # Each engine (lato_cms, lato_spaces, ...) adds its own column:
+    #   - `lato_*_admin`      -> boolean, rendered as a checkbox
+    #   - `lato_*_admin_role` -> integer enum, rendered as a select
     def load_available_admin_permissions
-      @available_admin_permissions ||= Lato::User.columns.map(&:name).select { |c| c.start_with?('lato_') && c.end_with?('_admin') }
+      @available_admin_permissions ||= Lato::User.column_names.filter_map do |name|
+        if name.match?(/\Alato_.+_admin\z/)
+          { name: name, type: :boolean }
+        elsif name.match?(/\Alato_.+_admin_role\z/)
+          { name: name, type: :enum, options: admin_permission_options(name) }
+        end
+      end
+    end
+
+    # Enum options are owned by the engine that defines the column, exposed as a
+    # `Lato::User.<column>_options` class method returning [[label, value], ...].
+    def admin_permission_options(name)
+      options_method = "#{name}_options"
+      Lato::User.respond_to?(options_method) ? Lato::User.public_send(options_method) : []
     end
   end
 end
