@@ -40,7 +40,7 @@ module LatoUsers
     def update
       @user = Lato::User.find(params[:id])
       if @user.update(user_params)
-        redirect_to(params[:redirect_to] || users_path)
+        redirect_to(url_from(params[:redirect_to]) || users_path)
       else
         render 'edit'
       end
