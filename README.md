@@ -13,7 +13,7 @@ Manage application users on Lato projects.
 
 ## Installation
 
-Requires Rails 8.1.3.1 or newer in the 8.1 series and Lato 3.25.0 or newer. Existing applications must run `rails lato:install:migrations` (Lato session records) before deployment; previous sessions are invalidated.
+Requires Rails 8.1.3.1 or newer in the 8.1 series and Lato 3.25.0 or newer.
 
 Dependencies of the host application:
 
@@ -106,6 +106,16 @@ $ bin/rails test
 ```
 
 Fixtures live in `test/fixtures/lato`; integration tests sign in with `authenticate_user` (`test/test_helper.rb`). Dummy seed login: `admin@mail.com` / `Password1!`.
+
+## Upgrading
+
+```bash
+bundle update lato_users
+rails lato_users:install:migrations
+rails db:migrate
+```
+
+Read [UPGRADING.md](UPGRADING.md) for the changes and extra steps required by each version.
 
 ## Development
 
