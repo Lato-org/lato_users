@@ -5,7 +5,7 @@ user ||= Lato::User.new
 %>
 
 <%= turbo_frame_tag dom_id(user, 'form') do %>
-  <%= form_with model: user, url: user.persisted? ? lato_users.user_path(user) : lato_users.users_path, data: { turbo_frame: '_self', controller: 'lato-form lato-users-form' } do |form| %>
+  <%= form_with model: user, url: user.persisted? ? lato_users.user_path(user) : lato_users.users_path, data: { turbo_frame: '_self', controller: 'lato-form lato-users-form', lato_users_form_generated_message_value: I18n.t('lato_users.password_generated') } do |form| %>
     <%= lato_form_notices class: %w[mb-3] %>
     <%= lato_form_errors user, class: %w[mb-3] %>
 
@@ -34,12 +34,12 @@ user ||= Lato::User.new
       <div class="row">
         <div class="col col-12 col-md-6 mb-3">
           <%= lato_form_item_label form, :password %>
-          <%= lato_form_item_input_password form, :password, required: true, data: { lato_users_form_target: 'password' } %>
+          <%= lato_form_item_input_password form, :password, required: true, autocomplete: 'new-password', data: { lato_users_form_target: 'password' } %>
         </div>
 
         <div class="col col-12 col-md-6 mb-3">
           <%= lato_form_item_label form, :password_confirmation %>
-          <%= lato_form_item_input_password form, :password_confirmation, required: true, data: { lato_users_form_target: 'passwordConfirmation' } %>
+          <%= lato_form_item_input_password form, :password_confirmation, required: true, autocomplete: 'new-password', data: { lato_users_form_target: 'passwordConfirmation' } %>
         </div>
       </div>
 
@@ -49,16 +49,17 @@ user ||= Lato::User.new
             <div class="card-body">
               <div class="row align-items-center">
                 <div class="col-auto">
-                  <button class="btn btn-primary" data-action="click->lato-users-form#generatePassword">
-                    <i class="bi bi-shuffle me-2"></i>
+                  <button type="button" class="btn btn-primary" data-action="click->lato-users-form#generatePassword">
+                    <i class="bi bi-shuffle me-2" aria-hidden="true"></i>
                     <%= I18n.t('lato_users.generate_password') %>
                   </button>
                 </div>
                 <div class="col">
                   <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-key"></i></span>
-                    <input type="text" class="form-control font-monospace" readonly data-lato-users-form-target="generatedPassword" placeholder="...">
+                    <span class="input-group-text"><i class="bi bi-key" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control font-monospace" readonly aria-label="<%= I18n.t('lato_users.generated_password') %>" data-lato-users-form-target="generatedPassword" placeholder="...">
                   </div>
+                  <span class="visually-hidden" role="status" aria-live="polite" data-lato-users-form-target="status"></span>
                 </div>
               </div>
             </div>
@@ -68,14 +69,14 @@ user ||= Lato::User.new
     <% end %>
 
     <% if @available_admin_permissions.any? %>
-      <div class="accordion mb-3" id="permissionsAccordion">
+      <div class="accordion mb-3" id="<%= dom_id(user, 'permissions_accordion') %>">
         <div class="accordion-item">
-          <h2 class="accordion-header" id="headingPermissions">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePermissions" aria-expanded="false" aria-controls="collapsePermissions">
+          <h2 class="accordion-header" id="<%= dom_id(user, 'permissions_heading') %>">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<%= dom_id(user, 'permissions_collapse') %>" aria-expanded="false" aria-controls="<%= dom_id(user, 'permissions_collapse') %>">
               <%= I18n.t('lato_users.permissions') %>
             </button>
           </h2>
-          <div id="collapsePermissions" class="accordion-collapse collapse" aria-labelledby="headingPermissions" data-bs-parent="#permissionsAccordion">
+          <div id="<%= dom_id(user, 'permissions_collapse') %>" class="accordion-collapse collapse" aria-labelledby="<%= dom_id(user, 'permissions_heading') %>" data-bs-parent="#<%= dom_id(user, 'permissions_accordion') %>">
             <div class="accordion-body">
               <div class="row">
                 <% @available_admin_permissions.each_with_index do |permission, index| %>
@@ -86,7 +87,7 @@ user ||= Lato::User.new
                       <%= lato_form_item_label form, permission[:name].to_sym, label %>
                       <%= lato_form_item_input_select form, permission[:name].to_sym, permission[:options] %>
                     <% else %>
-                      <%= lato_form_item_input_check form, permission[:name].to_sym, label %>
+                      <%= lato_user_permission_check form, user, permission[:name].to_sym, label %>
                     <% end %>
                   </div>
                 <% end %>

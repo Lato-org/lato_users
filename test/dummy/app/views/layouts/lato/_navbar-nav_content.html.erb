@@ -1,6 +1,8 @@
 <% if @session.valid? %>
-  <%= lato_navbar_nav_item :lato_users, lato_users.root_path do %>
-    Users
+  <% if @session.user&.lato_users_admin %>
+    <%= lato_navbar_nav_item :lato_users, lato_users.root_path do %>
+      <%= I18n.t('lato_users.users') %>
+    <% end %>
   <% end %>
   <%= lato_navbar_nav_item :account, lato.account_path do %>
     <%= I18n.t('lato.account') %>

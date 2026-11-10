@@ -2,10 +2,10 @@ require 'fileutils'
 
 namespace :lato_users do
   namespace :install do
-    desc 'Install Lato users engine and run tasks on main rails application'
+    desc 'No-op: Lato Users needs no application-level install step (kept for forward compatibility)'
     # Usage: rails lato_users:install:application
     task :application do
-      # Free for future use...
+      # Intentionally empty: setup is gem + migrations + mount + imports.
     end
   end
 end

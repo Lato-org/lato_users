@@ -45,19 +45,19 @@
 
     <div class="row mb-4">
       <div class="col-12">
-        <h5 class="fs-6 fw-bold mb-3"><%= I18n.t('lato_users.signup_logs') %></h5>
+        <h3 class="fs-6 fw-bold mb-3"><%= I18n.t('lato_users.signup_logs') %></h3>
         <% if @user.lato_log_user_signups.any? %>
           <div class="list-group">
             <% @user.lato_log_user_signups.order(created_at: :desc).limit(5).each do |log| %>
               <div class="list-group-item p-3">
                 <div class="row align-items-center gy-2">
                   <div class="col-12 col-md-3 text-muted small">
-                    <i class="bi bi-calendar-event me-2"></i>
+                    <i class="bi bi-calendar-event me-2" aria-hidden="true"></i>
                     <%= l(log.created_at, format: :long) %>
                   </div>
                   <div class="col-12 col-md-3">
                     <div class="d-flex align-items-center">
-                      <i class="bi bi-globe me-2 text-muted d-md-none"></i>
+                      <i class="bi bi-globe me-2 text-muted d-md-none" aria-hidden="true"></i>
                       <span class="text-truncate d-block" style="max-width: 100%;" title="<%= log.ip_address %>" data-bs-toggle="tooltip">
                         <%= log.ip_address %>
                       </span>
@@ -65,7 +65,7 @@
                   </div>
                   <div class="col-12 col-md-6 text-muted small">
                     <div class="d-flex align-items-center">
-                      <i class="bi bi-laptop me-2 d-md-none"></i>
+                      <i class="bi bi-laptop me-2 d-md-none" aria-hidden="true"></i>
                       <span class="text-truncate d-block" style="max-width: 100%;" title="<%= log.user_agent %>" data-bs-toggle="tooltip">
                         <%= log.user_agent %>
                       </span>
@@ -77,7 +77,7 @@
           </div>
         <% else %>
           <div class="alert border text-center text-muted">
-            <i class="bi bi-info-circle me-2"></i><%= I18n.t('lato_users.no_logs_found') %>
+            <i class="bi bi-info-circle me-2" aria-hidden="true"></i><%= I18n.t('lato_users.no_logs_found') %>
           </div>
         <% end %>
       </div>
@@ -85,19 +85,19 @@
 
     <div class="row mb-4">
       <div class="col-12">
-        <h5 class="fs-6 fw-bold mb-3"><%= I18n.t('lato_users.login_logs') %></h5>
+        <h3 class="fs-6 fw-bold mb-3"><%= I18n.t('lato_users.login_logs') %></h3>
         <% if @user.lato_log_user_signins.any? %>
           <div class="list-group">
             <% @user.lato_log_user_signins.order(created_at: :desc).limit(5).each do |log| %>
               <div class="list-group-item p-3">
                 <div class="row align-items-center gy-2">
                   <div class="col-12 col-md-3 text-muted small">
-                    <i class="bi bi-calendar-event me-2"></i>
+                    <i class="bi bi-calendar-event me-2" aria-hidden="true"></i>
                     <%= l(log.created_at, format: :long) %>
                   </div>
                   <div class="col-12 col-md-3">
                     <div class="d-flex align-items-center">
-                      <i class="bi bi-globe me-2 text-muted d-md-none"></i>
+                      <i class="bi bi-globe me-2 text-muted d-md-none" aria-hidden="true"></i>
                       <span class="text-truncate d-block" style="max-width: 100%;" title="<%= log.ip_address %>" data-bs-toggle="tooltip">
                         <%= log.ip_address %>
                       </span>
@@ -105,7 +105,7 @@
                   </div>
                   <div class="col-12 col-md-6 text-muted small">
                     <div class="d-flex align-items-center">
-                      <i class="bi bi-laptop me-2 d-md-none"></i>
+                      <i class="bi bi-laptop me-2 d-md-none" aria-hidden="true"></i>
                       <span class="text-truncate d-block" style="max-width: 100%;" title="<%= log.user_agent %>" data-bs-toggle="tooltip">
                         <%= log.user_agent %>
                       </span>
@@ -117,7 +117,7 @@
           </div>
         <% else %>
           <div class="alert border text-center text-muted">
-            <i class="bi bi-info-circle me-2"></i><%= I18n.t('lato_users.no_logs_found') %>
+            <i class="bi bi-info-circle me-2" aria-hidden="true"></i><%= I18n.t('lato_users.no_logs_found') %>
           </div>
         <% end %>
       </div>
@@ -125,20 +125,20 @@
 
     <div class="row">
       <div class="col-12">
-        <h5 class="fs-6 fw-bold mb-3"><%= I18n.t('lato_users.password_management') %></h5>
+        <h3 class="fs-6 fw-bold mb-3"><%= I18n.t('lato_users.password_management') %></h3>
         
         <% if @user.password_digest.present? %>
           <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between p-3 bg-success bg-opacity-10 border border-success rounded">
             <div class="d-flex align-items-center mb-3 mb-md-0">
               <div class="me-3 text-success">
-                <i class="bi bi-shield-lock-fill fs-4"></i>
+                <i class="bi bi-shield-lock-fill fs-4" aria-hidden="true"></i>
               </div>
               <div>
-                <h5 class="fs-6 fw-bold text-success mb-0"><%= I18n.t('lato_users.password_set') %></h5>
+                <h3 class="fs-6 fw-bold text-success mb-0"><%= I18n.t('lato_users.password_set') %></h3>
               </div>
             </div>
             <div class="d-flex gap-2">
-              <%= button_to force_update_password_user_path(@user), method: :patch, class: "btn btn-danger btn-sm d-flex align-items-center", form: { data: { turbo_confirm: I18n.t('lato_users.are_you_sure') } } do %>
+              <%= button_to force_update_password_user_path(@user), method: :patch, class: "btn btn-danger btn-sm d-flex align-items-center", form: { data: { turbo: false, controller: 'lato-users-form', action: 'submit->lato-users-form#confirmSubmit', lato_users_form_confirm_message_value: I18n.t('lato_users.force_password_confirm', name: @user.email) } } do %>
                 <%= I18n.t('lato_users.force_password_update') %>
               <% end %>
             </div>
@@ -147,14 +147,14 @@
           <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between p-3 bg-danger bg-opacity-10 border border-danger rounded">
             <div class="d-flex align-items-center mb-3 mb-md-0">
               <div class="me-3 text-danger">
-                <i class="bi bi-shield-exclamation fs-4"></i>
+                <i class="bi bi-shield-exclamation fs-4" aria-hidden="true"></i>
               </div>
               <div>
-                <h5 class="fs-6 fw-bold text-danger mb-0"><%= I18n.t('lato_users.password_not_set') %></h5>
+                <h3 class="fs-6 fw-bold text-danger mb-0"><%= I18n.t('lato_users.password_not_set') %></h3>
               </div>
             </div>
             <div class="d-flex gap-2">
-              <%= button_to force_update_password_user_path(@user), method: :patch, class: "btn btn-danger btn-sm d-flex align-items-center", form: { data: { turbo_confirm: I18n.t('lato_users.are_you_sure') } } do %>
+              <%= button_to force_update_password_user_path(@user), method: :patch, class: "btn btn-danger btn-sm d-flex align-items-center", form: { data: { turbo: false, controller: 'lato-users-form', action: 'submit->lato-users-form#confirmSubmit', lato_users_form_confirm_message_value: I18n.t('lato_users.force_password_confirm', name: @user.email) } } do %>
                 <%= I18n.t('lato_users.force_password_update') %>
               <% end %>
             </div>

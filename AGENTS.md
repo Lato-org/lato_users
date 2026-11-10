@@ -13,17 +13,30 @@ Lato is ecosystem of Rails engines for building admin panels with authentication
 Admins can:
 
 - View and create users.
-- Edit user identity, password, and available Lato admin permissions.
+- Edit user identity and available Lato admin permissions. Passwords are set only on create; later changes go through "Force password update" (shown once, sessions revoked).
 - Manage email verification actions.
 - Generate new passwords for users.
-- Create and delete invitations.
+- Create, resend and delete invitations.
+
+## Permissions
+
+- Every action requires `authenticate_session` plus `lato_users_admin` (`LatoUsers::ApplicationController`).
+- `UsersController#load_available_admin_permissions` discovers columns on `Lato::User` by name: `lato_*_admin` (boolean, checkbox) and `lato_*_admin_role` (integer, select with `Lato::User.<column>_options`). New engine flags become mass-assignable for every users admin: `lato_users_admin` is a super-admin flag.
+- Guards: no self-removal of `lato_users_admin`, no demoting/deleting the last users admin, role values validated against the options, `password` permitted on create only.
+- Labels come from `activerecord.attributes.lato/user.<column>` (add them to `config/locales/*.yml` when adding an engine flag).
+
+## Test conventions
+
+- Fixtures in `test/fixtures/lato`; integration tests sign in with `authenticate_user` (`test/test_helper.rb`).
+- The dummy `ApplicationController` inherits `Lato::ApplicationController`, not the engine one: do not use the engine controller as a production pattern for host pages.
 
 ## Documentation
 
 - User-facing documentation lives in `test/dummy/app/views/application/documentation.html.erb`.
 - Keep that file updated whenever install steps, permissions, configuration, or usage changes.
 - Documentation should explain what the gem does, how to install it, and how to use it.
-- Avoid internal implementation details such as controller internals, route lists, private models, or database mechanics unless required for usage.
+- Keep mount path `/lato-users` consistent across README, dummy docs and dummy routes.
+- Avoid internal implementation details such as controller internals, private models, or database mechanics unless required for usage.
 
 ## Local setup
 

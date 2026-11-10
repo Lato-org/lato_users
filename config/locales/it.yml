@@ -1,18 +1,33 @@
 it:
   lato_users:
-    users: Utenti
-    add_user: Aggiungi Utente
-    edit_user: Modifica Utente
-    show_user: Dettagli Utente
-    cta_show: Visualizza
-    cta_edit: Modifica
-    cta_update: Aggiorna
-    cta_delete: Elimina
-    cta_confirm: Conferma
-    cta_delete_confirm: Sei sicuro di voler eliminare questo utente?
-    cannot_delete_self: Non puoi eliminare il tuo account utente.
-    cannot_delete_foreign_key: Impossibile eliminare l'utente perché è collegato ad uno o più record in altre tabelle. Rimuovi o aggiorna i record collegati prima di procedere con l'eliminazione.
-    account_informations: Informazioni Account
+    users: "Utenti"
+    add_user: "Aggiungi Utente"
+    edit_user: "Modifica Utente"
+    show_user: "Dettagli Utente"
+    cta_show: "Visualizza"
+    cta_edit: "Modifica"
+    cta_update: "Aggiorna"
+    cta_delete: "Elimina"
+    cta_confirm: "Conferma"
+    cta_resend: "Reinvia"
+    cta_show_user: "Visualizza %{name}"
+    cta_edit_user: "Modifica %{name}"
+    cta_delete_user: "Elimina %{name}"
+    cta_delete_confirm: "Sei sicuro di voler eliminare l'utente %{name}? L'azione non può essere annullata."
+    cta_resend_invitation: "Reinvia invito a %{name}"
+    cta_delete_invitation: "Elimina invito per %{name}"
+    cta_delete_invitation_confirm: "Sei sicuro di voler eliminare l'invito per %{name}?"
+    not_authorized: "Non hai accesso a questa sezione."
+    user_created: "Utente creato"
+    user_updated: "Utente aggiornato"
+    user_destroyed: "Utente eliminato"
+    cannot_delete_self: "Non puoi eliminare il tuo account utente."
+    cannot_delete_last_admin: "Non puoi eliminare l'ultimo amministratore utenti."
+    cannot_remove_own_admin: "Non puoi rimuovere il tuo permesso di amministratore utenti."
+    cannot_remove_last_admin: "Non puoi rimuovere il permesso all'ultimo amministratore utenti."
+    invalid_permission_value: "non è un valore consentito"
+    cannot_delete_foreign_key: "Impossibile eliminare l'utente perché è collegato ad uno o più record in altre tabelle. Rimuovi o aggiorna i record collegati prima di procedere con l'eliminazione."
+    account_informations: "Informazioni Account"
     email_verification: "Verifica Email"
     email_verified: "Email Verificata"
     email_verified_at: "Verificata il %{date}"
@@ -23,6 +38,7 @@ it:
     resend_verification_email: "Invia nuovamente email di verifica"
     manual_verify_email: "Verifica manualmente"
     verification_email_sent: "Email di verifica inviata"
+    verification_email_failed: "Impossibile inviare l'email di verifica"
     email_manually_verified: "Email verificata manualmente"
     email_verification_revoked: "Verifica email revocata"
     privacy_and_terms: "Privacy Policy e Termini"
@@ -34,28 +50,37 @@ it:
     version_up_to_date: "Versione aggiornata"
     security: "Sicurezza"
     signup_logs: "Log di Registrazione"
-    date: "Data"
-    ip_address: "Indirizzo IP"
-    user_agent: "User Agent"
     no_logs_found: "Nessun log trovato"
     login_logs: "Log di Accesso"
     password_management: "Gestione Password"
     password_set: "Password impostata"
     password_not_set: "Password non impostata"
-    send_reset_password_email: "Invia email di reset password"
     force_password_update: "Forza aggiornamento password"
-    recover_password_email_sent: "Email di recupero password inviata"
-    recover_password_email_failed: "Impossibile inviare email di recupero password"
-    password_updated: "Password aggiornata: %{password}"
+    force_password_confirm: "Generare una nuova password per %{name}? Tutte le sue sessioni verranno revocate."
+    password_updated_for: "Nuova password impostata per %{name}"
+    generated_password: "Password generata"
+    password_generated: "Password generata e inserita nei campi"
+    password_shown_once: "Questa password viene mostrata una sola volta e non viene salvata. Copiala ora e condividila in modo sicuro: ricaricando la pagina non sarà più visibile."
     password_update_failed: "Impossibile aggiornare la password"
     authenticator_connection: "Connessione Authenticator"
     invitations: "Inviti"
     add_invitation: "Aggiungi Invito"
     invitation_created: "Invito creato"
+    invitation_resent: "Invito inviato nuovamente"
+    invitation_email_failed: "Impossibile inviare l'email di invito"
     invitation_destroyed: "Invito eliminato"
+    cannot_delete_accepted_invitation: "Gli inviti accettati non possono essere eliminati."
     webauthn_connection: "Connessione WebAuthn"
     connected: "Connesso"
     not_connected: "Non Connesso"
     devices_count: "Dispositivi Connessi"
-    generate_password: 'Genera Password'
+    generate_password: "Genera Password"
     permissions: "Permessi"
+  activerecord:
+    attributes:
+      lato/user:
+        lato_users_admin: "Amministratore utenti"
+        lato_settings_admin: "Amministratore impostazioni"
+        lato_spaces_admin: "Amministratore spazi"
+        lato_storage_admin: "Amministratore storage"
+        lato_cms_admin_role: "Ruolo CMS"

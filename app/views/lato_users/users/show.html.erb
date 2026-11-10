@@ -3,6 +3,15 @@
   { label: I18n.t('lato_users.show_user') }
 ] %>
 
+<% if @generated_password %>
+  <div class="alert alert-warning mb-4" role="status">
+    <p class="fw-bold mb-2"><%= I18n.t('lato_users.password_updated_for', name: @user.email) %></p>
+    <label class="form-label" for="generated_password"><%= I18n.t('lato_users.generated_password') %></label>
+    <input type="text" id="generated_password" class="form-control font-monospace mb-2" value="<%= @generated_password %>" readonly autocomplete="off">
+    <p class="mb-0 small"><%= I18n.t('lato_users.password_shown_once') %></p>
+  </div>
+<% end %>
+
 <%= render 'card_account_informations' %>
 
 <%= render 'card_email_verification' %>

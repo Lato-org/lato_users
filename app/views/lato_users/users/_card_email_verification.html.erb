@@ -7,10 +7,10 @@
       <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between p-3 bg-success bg-opacity-10 border border-success rounded">
         <div class="d-flex align-items-center mb-3 mb-md-0">
           <div class="me-3 text-success">
-            <i class="bi bi-check-circle-fill fs-4"></i>
+            <i class="bi bi-check-circle-fill fs-4" aria-hidden="true"></i>
           </div>
           <div>
-            <h5 class="fs-6 fw-bold text-success mb-0"><%= I18n.t('lato_users.email_verified') %></h5>
+            <h3 class="fs-6 fw-bold text-success mb-0"><%= I18n.t('lato_users.email_verified') %></h3>
             <small class="text-muted"><%= I18n.t('lato_users.email_verified_at', date: l(@user.email_verified_at, format: :long)) %></small>
           </div>
         </div>
@@ -20,10 +20,10 @@
       <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between p-3 bg-danger bg-opacity-10 border border-danger rounded">
         <div class="d-flex align-items-center mb-3 mb-md-0">
           <div class="me-3 text-danger">
-            <i class="bi bi-exclamation-triangle-fill fs-4"></i>
+            <i class="bi bi-exclamation-triangle-fill fs-4" aria-hidden="true"></i>
           </div>
           <div>
-            <h5 class="fs-6 fw-bold text-danger mb-0"><%= I18n.t('lato_users.email_not_verified') %></h5>
+            <h3 class="fs-6 fw-bold text-danger mb-0"><%= I18n.t('lato_users.email_not_verified') %></h3>
             <small class="text-muted"><%= I18n.t('lato_users.email_verification_required') %></small>
           </div>
         </div>
