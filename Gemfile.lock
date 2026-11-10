@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lato_users (3.0.7)
+    lato_users (3.1.0)
       lato (>= 3.25.0)
       rails (>= 8.1.3.1, < 8.2)
 
